@@ -212,7 +212,7 @@ export default function Connect() {
                                 Check Back Later!
                             </h3>
                             <p className="mt-3 max-w-md text-text-muted leading-relaxed">
-                                We aren't currently hiring for any positions. Subscribe to our newsletter below to be the first to know when applications open.
+                                We aren&apos;t currently hiring for any positions. Subscribe to our newsletter below to be the first to know when applications open.
                             </p>
                         </div>
                     )}
