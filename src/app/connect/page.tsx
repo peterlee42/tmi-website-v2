@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants} from "framer-motion";
 import { DescriptionList } from "./components/DescriptionList";
 import { PositionCard } from "./components/PositionCard";
 import { DropdownCard } from "./components/DropdownCard";
@@ -12,7 +12,7 @@ import { NewsletterGrid } from "./components/NewsletterGrid";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 
 // Animation variant for fading in and sliding up
-const fadeInUp = {
+const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
@@ -24,7 +24,7 @@ export default function Connect() {
     const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const positions = [
+    const positions: { title: string; applyLink: string }[] = [
         // {
         //     title: "General Member 📣",
         //     applyLink: "https://docs.google.com/forms/d/e/1FAIpQLSdDnTaJPdHzBvyi8vkjx_zMsdvmEUr0pIlrQ3AO24IEVRvZVQ/viewform",
