@@ -14,12 +14,13 @@ export function DropdownCard({
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="rounded-xl border border-secondary/20 bg-card px-4 py-3 shadow-sm transition-shadow hover:shadow-md md:px-5 md:py-4">
+        <div className="rounded-2xl border-2 border-text-primary bg-[var(--home-card)] px-5 py-4 shadow-[4px_4px_0_0_var(--color-primary)] md:px-6 md:py-5">
             <button
                 className="w-full flex items-start justify-between gap-4 text-left"
                 onClick={() => setIsOpen(!isOpen)}
+                aria-expanded={isOpen}
             >
-                <h3 className="text-base md:text-lg font-semibold text-secondary">
+                <h3 className="text-base md:text-lg font-bold text-text-primary">
                     {title}
                 </h3>
                 {isOpen && <ChevronUpIcon className="size-6 text-primary" />}
