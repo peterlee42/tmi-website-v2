@@ -7,9 +7,6 @@ interface Node {
     y: number;
     vx: number;
     vy: number;
-    r: number;
-    accent: "orange" | "teal" | null;
-    phase: number;
 }
 
 interface NeuralBackgroundProps {
@@ -23,14 +20,14 @@ interface NeuralBackgroundProps {
 }
 
 /**
- * Animated "neural network" background: nodes float around and connect
- * with fading lines when they get close. Light ink on dark mode, dark ink
+ * Animated "neural network" background: plain nodes drift and connect
+ * with faint lines when they get close. Light ink on dark mode, dark ink
  * on light mode. Respects prefers-reduced-motion (draws one still frame).
  */
 export default function NeuralBackground({
-    nodeCount = 60,
-    speed = 0.4,
-    linkDistance = 150,
+    nodeCount = 45,
+    speed = 0.25,
+    linkDistance = 140,
     className = "",
 }: NeuralBackgroundProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -50,18 +47,12 @@ export default function NeuralBackground({
         let frameId = 0;
 
         const seed = () => {
-            nodes = Array.from({ length: nodeCount }, (_, i) => {
-                const accent = i % 9 === 0 ? "orange" : i % 9 === 4 ? "teal" : null;
-                return {
-                    x: Math.random() * width,
-                    y: Math.random() * height,
-                    vx: Math.random() - 0.5,
-                    vy: Math.random() - 0.5,
-                    r: accent ? 4.5 : 2 + Math.random() * 2.2,
-                    accent,
-                    phase: Math.random() * Math.PI * 2,
-                };
-            });
+            nodes = Array.from({ length: nodeCount }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: Math.random() - 0.5,
+                vy: Math.random() - 0.5,
+            }));
         };
 
         const resize = () => {
@@ -79,7 +70,6 @@ export default function NeuralBackground({
             for (const n of nodes) {
                 n.x += n.vx * speed;
                 n.y += n.vy * speed;
-                n.phase += 0.02;
                 // Wrap around the edges so the network never empties out
                 if (n.x < -20) n.x = width + 20;
                 if (n.x > width + 20) n.x = -20;
@@ -91,8 +81,6 @@ export default function NeuralBackground({
         const draw = () => {
             const dark = isDark();
             const ink = dark ? "255,255,255" : "20,18,16";
-            const orange = dark ? "255,107,74" : "255,94,56";
-            const teal = dark ? "27,197,217" : "10,171,190";
 
             ctx.clearRect(0, 0, width, height);
 
@@ -104,7 +92,7 @@ export default function NeuralBackground({
                     const dy = nodes[i].y - nodes[j].y;
                     const d = Math.hypot(dx, dy);
                     if (d < linkDistance) {
-                        const alpha = (dark ? 0.26 : 0.2) * (1 - d / linkDistance);
+                        const alpha = (dark ? 0.18 : 0.14) * (1 - d / linkDistance);
                         ctx.strokeStyle = `rgba(${ink},${alpha.toFixed(3)})`;
                         ctx.beginPath();
                         ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -114,19 +102,11 @@ export default function NeuralBackground({
                 }
             }
 
-            // Nodes; accent nodes pulse and get a soft halo
+            // Nodes
+            ctx.fillStyle = `rgba(${ink},${dark ? 0.45 : 0.35})`;
             for (const n of nodes) {
-                const color = n.accent === "orange" ? orange : n.accent === "teal" ? teal : ink;
-                const alpha = n.accent ? 0.6 + 0.4 * Math.sin(n.phase) : dark ? 0.55 : 0.4;
-                if (n.accent) {
-                    ctx.fillStyle = `rgba(${color},0.15)`;
-                    ctx.beginPath();
-                    ctx.arc(n.x, n.y, n.r * 2.6, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-                ctx.fillStyle = `rgba(${color},${alpha.toFixed(3)})`;
                 ctx.beginPath();
-                ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+                ctx.arc(n.x, n.y, 2.2, 0, Math.PI * 2);
                 ctx.fill();
             }
         };

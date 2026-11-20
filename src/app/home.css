@@ -5,8 +5,6 @@
     --home-card: #ffffff;
     --home-line: rgba(0, 0, 0, 0.09);
     --home-eyebrow: #077a87; /* darker teal so small text passes contrast on light bg */
-    --home-glow-orange: rgba(255, 94, 56, 0.1);
-    --home-glow-teal: rgba(10, 171, 190, 0.08);
 }
 
 html.dark .home {
@@ -14,39 +12,10 @@ html.dark .home {
     --home-card: #0b0b0c;
     --home-line: rgba(255, 255, 255, 0.08);
     --home-eyebrow: var(--color-secondary);
-    --home-glow-orange: rgba(255, 107, 74, 0.16);
-    --home-glow-teal: rgba(27, 197, 217, 0.12);
 }
 
 /* Fade the network out toward the edges of the hero */
 .home-fade-mask {
     -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 30%, transparent 100%);
     mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 30%, transparent 100%);
-}
-
-/* Soft colour glow behind the title, plus a dark "veil" so lines don't cross the text */
-.home-glow {
-    background:
-        radial-gradient(ellipse 38% 32% at 42% 46%, var(--home-glow-orange), transparent 70%),
-        radial-gradient(ellipse 34% 30% at 60% 54%, var(--home-glow-teal), transparent 70%);
-}
-
-.home-veil {
-    background: radial-gradient(ellipse 34% 26% at 50% 48%, var(--home-bg) 0%, transparent 100%);
-    opacity: 0.85;
-}
-
-@keyframes home-bob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-}
-
-.home-bob {
-    animation: home-bob 2.4s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .home-bob {
-        animation: none;
-    }
 }
