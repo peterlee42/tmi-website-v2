@@ -56,14 +56,14 @@ export default function Home() {
                     </h1>
                     <div className="mt-2 flex flex-wrap justify-center gap-3">
                         <Link
-                            href="/connect"
+                            href="/about"
                             className="inline-flex min-h-12 items-center rounded-lg bg-primary px-7 font-semibold text-black transition-colors hover:bg-hover-orange focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
                         >
                             Join us
                         </Link>
                         <Link
-                            href="/about"
-                            className="inline-flex min-h-12 items-center rounded-lg border border-[var(--home-line)] bg-[var(--home-bg)]/70 px-7 font-semibold backdrop-blur-sm transition-colors hover:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                            href="/connect"
+                            className="inline-flex min-h-12 items-center rounded-lg bg-secondary px-7 font-semibold text-black transition-colors hover:bg-hover-teal focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                         >
                             Connect
                         </Link>

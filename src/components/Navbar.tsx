@@ -69,7 +69,7 @@ export default function Navbar() {
         <>
             {/* Desktop Navbar - md and above */}
             <nav className="hidden md:block w-full bg-card border-b border-secondary/20">
-                <div className="max-w-7xl mx-auto px-6 py-4">
+                <div className="w-full px-8 py-5">
                     <div className="flex items-center justify-between">
                         <Link
                             href="/"
@@ -80,15 +80,15 @@ export default function Navbar() {
                                 alt="TMI"
                                 width={240}
                                 height={96}
-                                className="h-12 w-auto"
+                                className="h-16 w-auto"
                             />
                         </Link>
-                        <div className="flex items-center gap-6">
+                        <div className="flex items-center gap-8">
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className="text-sm font-medium text-text-primary hover:text-primary transition-colors"
+                                    className="text-base font-medium text-text-primary hover:text-primary transition-colors"
                                 >
                                     {link.label}
                                 </Link>
@@ -164,7 +164,7 @@ export default function Navbar() {
                             alt="TMI"
                             width={240}
                             height={96}
-                            className="h-12 w-auto"
+                            className="h-16 w-auto"
                         />
                     </Link>
                     <button
@@ -230,7 +230,7 @@ export default function Navbar() {
                                     alt="TMI"
                                     width={240}
                                     height={96}
-                                    className="h-12 w-auto"
+                                    className="h-16 w-auto"
                                 />
                             </Link>
                             <button
