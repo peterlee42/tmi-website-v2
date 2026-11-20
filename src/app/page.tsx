@@ -56,7 +56,7 @@ export default function Home() {
                     </h1>
                     <div className="mt-2 flex flex-wrap justify-center gap-3">
                         <Link
-                            href="/apply"
+                            href="/connect"
                             className="inline-flex min-h-12 items-center rounded-lg bg-primary px-7 font-semibold text-black transition-colors hover:bg-hover-orange focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
                         >
                             Join us

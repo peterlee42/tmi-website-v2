@@ -11,7 +11,7 @@ export function PositionCard({
     applyLink?: string;
 }) {
     return (
-        <div className="bg-card p-4 md:p-5 rounded-xl border border-secondary/20 dark:border-secondary/30 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 justify-between flex flex-col gap-2 text-secondary">
+        <div className="flex flex-col justify-between gap-2 rounded-2xl border-2 border-text-primary bg-[var(--home-card)] p-6 shadow-[6px_6px_0_0_var(--color-primary)] transition-transform hover:-translate-y-1">
             <div className="flex md:flex-row md:items-center md:justify-between md:gap-4 flex-col gap-4">
                 <div className="flex gap-4 items-center">
                     <div>
@@ -29,7 +29,7 @@ export function PositionCard({
                         href={applyLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full md:w-auto items-center justify-center bg-primary hover:bg-hover-orange text-white font-semibold text-sm rounded-md py-2.5 px-4 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+                        className="inline-flex w-full md:w-auto items-center justify-center bg-primary hover:bg-hover-orange text-black font-semibold rounded-lg min-h-12 px-7 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
                     >
                         Apply
                     </a>

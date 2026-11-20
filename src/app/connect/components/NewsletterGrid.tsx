@@ -11,15 +11,15 @@ export function NewsletterGrid() {
   }
 
   return (
-    <section className="w-full max-w-4xl mx-auto px-6 py-12">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
-          Recent Newsletters
+    <section className="w-full max-w-[1100px] mx-auto px-6 py-24">
+      <div className="text-center mb-12 flex flex-col gap-3">
+        <h2 className="m-0 text-[clamp(30px,5vw,48px)] font-extrabold leading-tight tracking-tight">
+          Recent newsletters
         </h2>
-        <p className="text-text-muted text-sm">Catch up on our latest updates</p>
+        <p className="m-0 text-lg text-text-muted">Catch up on our latest updates</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {recentNewsletters.map((newsletter) => (
           <NewsletterCard key={newsletter.id} newsletter={newsletter} />
         ))}

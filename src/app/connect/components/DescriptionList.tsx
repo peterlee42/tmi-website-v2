@@ -12,7 +12,7 @@ export function DescriptionList({ descriptions }: DescriptionListProps) {
                 >
                     <span
                         aria-hidden="true"
-                        className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-secondary"
+                        className="mt-2 h-3 w-3 shrink-0 rounded-full bg-primary"
                     />
                     <span>{desc}</span>
                 </li>

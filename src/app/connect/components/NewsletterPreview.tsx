@@ -21,7 +21,7 @@ export function NewsletterPreview({ pdfUrl }: NewsletterPreviewProps) {
   useEffect(() => {
     const updateWidth = () => {
       if (containerRef.current) {
-        setContainerWidth(containerRef.current.offsetWidth);
+        setContainerWidth(containerRef.current.clientWidth);
       }
     };
 
@@ -41,7 +41,7 @@ export function NewsletterPreview({ pdfUrl }: NewsletterPreviewProps) {
 
   if (hasError) {
     return (
-      <div className="w-full aspect-[8.5/11] bg-background border border-secondary/20 rounded-md flex items-center justify-center">
+      <div className="w-full aspect-video bg-background border border-secondary/20 rounded-md flex items-center justify-center">
         <p className="text-text-muted text-sm">Preview unavailable</p>
       </div>
     );
@@ -50,7 +50,7 @@ export function NewsletterPreview({ pdfUrl }: NewsletterPreviewProps) {
   return (
     <div
       ref={containerRef}
-      className="relative w-full aspect-[8.5/11] bg-background border border-secondary/20 rounded-md overflow-hidden"
+      className="relative w-full aspect-video bg-background border border-[var(--home-line)] rounded-md overflow-hidden"
     >
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-card">
