@@ -1,5 +1,4 @@
-/* Homepage-only theme tokens. Dark mode on the homepage is pure black;
-   the rest of the site keeps the global dark theme from globals.css. */
+/* Homepage-only theme tokens. Dark mode uses the global dark theme from globals.css. */
 .home {
     --home-bg: var(--color-background);
     --home-card: #ffffff;
@@ -8,8 +7,8 @@
 }
 
 html.dark .home {
-    --home-bg: #000000;
-    --home-card: #0b0b0c;
+    --home-bg: var(--color-background);
+    --home-card: var(--color-card);
     --home-line: rgba(255, 255, 255, 0.08);
     --home-eyebrow: var(--color-secondary);
 }
