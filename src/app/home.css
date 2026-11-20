@@ -1,0 +1,21 @@
+/* Homepage-only theme tokens. Dark mode on the homepage is pure black;
+   the rest of the site keeps the global dark theme from globals.css. */
+.home {
+    --home-bg: var(--color-background);
+    --home-card: #ffffff;
+    --home-line: rgba(0, 0, 0, 0.09);
+    --home-eyebrow: #077a87; /* darker teal so small text passes contrast on light bg */
+}
+
+html.dark .home {
+    --home-bg: #000000;
+    --home-card: #0b0b0c;
+    --home-line: rgba(255, 255, 255, 0.08);
+    --home-eyebrow: var(--color-secondary);
+}
+
+/* Fade the network out toward the edges of the hero */
+.home-fade-mask {
+    -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 30%, transparent 100%);
+    mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 30%, transparent 100%);
+}

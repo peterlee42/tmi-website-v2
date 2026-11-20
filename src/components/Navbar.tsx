@@ -83,7 +83,6 @@ export default function Navbar() {
                                 height={96}
                                 className="h-12 w-auto"
                             />
-                            <span>UofT TMI</span>
                         </Link>
                         <div className="flex items-center gap-6">
                             {navLinks.map((link) => (
@@ -168,7 +167,6 @@ export default function Navbar() {
                             height={96}
                             className="h-12 w-auto"
                         />
-                        <span>UofT TMI</span>
                     </Link>
                     <button
                         onClick={toggleTheme}
@@ -235,7 +233,6 @@ export default function Navbar() {
                                     height={96}
                                     className="h-12 w-auto"
                                 />
-                                <span>UofT TMI</span>
                             </Link>
                             <button
                                 onClick={closeMobileMenu}
