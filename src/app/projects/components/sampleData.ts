@@ -1,12 +1,84 @@
 import { Project } from "./types";
 
 export const sampleProjects: Project[] = [
+  // 26/27 projects
+  {
+    id: "5",
+    title: "LLM Sycophancy Mitigation",
+    description:
+      "Detect and correct sycophantic behaviour in LLMs.",
+    status: "Active",
+    tags: ["LLMs", "Sycophancy", "Alignment", "Robustness"],
+    leads: ["Akash Nagabhirava"],
+    links: {
+      proposal:
+        "https://docs.google.com/document/d/18ixg4s_yK7XIg57KUF7iQx4igkmsfxPke4AEb0am4Wk/edit?usp=sharing",
+    },
+    media: [{ type: "overview" }],
+  },
+  {
+    id: "6",
+    title: "Socratic AI Tutor",
+    description:
+      "Build a jail-break resistant AI tutor that guides students toward answers without simply giving them away.",
+    status: "Active",
+    tags: ["AI in Education", "LLMs", "Human-AI Interaction"],
+    leads: ["Jake Maly"],
+    links: {
+      proposal:
+        "https://docs.google.com/document/d/1rL0hzYbRthrpLczFMHq1yX5OD7W0vqo5eatygBtXl1A/edit?usp=sharing",
+    },
+    media: [{ type: "overview" }],
+  },
+  {
+    id: "8",
+    title: "Synthetic Data Screening",
+    description:
+      "Design screening pipelines for evaluating the quality of synthetic training data.",
+    status: "Active",
+    tags: ["Synthetic Data", "Data Quality", "Responsible AI"],
+    leads: ["Andy Li", "Sameha Tasnim"],
+    links: {
+      proposal:
+        "https://docs.google.com/document/d/1wGd7tVCHAJ8ntJD-n_MAHbqc8EWJhJi_ZhhxXn36Lj0/edit?usp=sharing",
+    },
+    media: [{ type: "overview" }],
+  },
+  {
+    id: "9",
+    title: "Uncertainty-Aware RAG",
+    description:
+      "Build RAG systems that recognize uncertainty and know when to answer, ask, or defer.",
+    status: "Active",
+    tags: ["RAG", "Uncertainty", "LLMs", "Reliability"],
+    leads: ["Shaurya Sareen (Rye)"],
+    links: {
+      proposal:
+        "https://docs.google.com/document/d/1oxy9txFOXoEpWfCnNlQ8bOCk9ruSjBrhTLEzDjnRIPk/edit?usp=sharing",
+    },
+    media: [{ type: "overview" }],
+  },
+  {
+    id: "11",
+    title: "Privacy-Preserving LLM Gateway",
+    description:
+      "Build a gateway that protects sensitive data before prompts are sent to external model providers.",
+    status: "Active",
+    tags: ["Privacy", "LLMs", "Data Protection"],
+    leads: ["Peter Lee"],
+    links: {
+      proposal:
+        "https://docs.google.com/document/d/1oDY23HJIKzhTuS8ukdYnuBkjADiQgc19OZtcNxqMAf0/edit?usp=sharing",
+    },
+    media: [{ type: "overview" }],
+  },
+  // Past projects
   {
     id: "1",
     title: "Explainable Censorship",
     description:
-      "Analyzing open-source moderation models to examine how they behave in ambiguous cases. Explores interpretability, calibration, and explanation techniques to improve transparency in automated content moderation using the UC Berkeley Measuring Hate Speech dataset.",
-    status: "Active",
+      "Explaining how open-source moderation models behave in ambiguous cases, using the UC Berkeley Measuring Hate Speech dataset.",
+    status: "Completed",
     tags: ["Content Moderation", "Interpretability", "Fairness", "Transformers", "NLP"],
     leads: ["Yiping Chen"],
     links: {},
@@ -43,8 +115,8 @@ export const sampleProjects: Project[] = [
     id: "2",
     title: "Context Based Captioning",
     description:
-      "Context-Based Captioning is a high-accuracy, live transcription system designed to master complex STEM terminology through a hybrid multi-stage architecture. By integrating course-specific materials via ModernBERT and Shallow Fusion, the pipeline dynamically biases distil-whisper to ensure technical accuracy in real-time university environments.",
-    status: "Active",
+      "Live transcription that nails STEM terminology by biasing distil-whisper with course materials via ModernBERT and Shallow Fusion.",
+    status: "Completed",
     tags: [
       "Accessibility",
       "Explainable AI",
@@ -105,8 +177,8 @@ export const sampleProjects: Project[] = [
     id: "3",
     title: "Machine Unlearning",
     description:
-      "Evaluating the performance trade-offs of diverse machine unlearning frameworks by simulating user data removal requests within social media recommender systems.",
-    status: "Active",
+      "Benchmarking machine unlearning frameworks by simulating user data removal requests in social media recommenders.",
+    status: "Completed",
     tags: ["Machine Unlearning", "Data Privacy", "AI Safety", "GDPR", "Benchmark"],
     leads: ["Seoyun Yang"],
     links: {
@@ -142,8 +214,8 @@ export const sampleProjects: Project[] = [
     id: "4",
     title: "LLM Social Simulation",
     description:
-      "Studying collective behavior of LLM agents in multi-agent environments with shared resource constraints. Investigates cooperation vs. collapse dynamics, resource competition, social norm emergence, and governance mechanisms when agents compete over regenerating resources.",
-    status: "Active",
+      "How LLM agents cooperate or collapse when competing over shared, regenerating resources.",
+    status: "Completed",
     tags: ["Multi-Agent Systems", "LLM Agents", "Social Simulation", "Cooperation", "Game Theory"],
     leads: ["Clementine Yang"],
     links: {},
