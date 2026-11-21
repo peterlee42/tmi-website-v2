@@ -1,5 +1,4 @@
 import type {Event} from "./type";
-import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 
@@ -47,7 +46,7 @@ export function EventCard({event} : EventCardProps) {
             : null;
 
     return (
-        <Card className="overflow-hidden flex flex-col">
+        <div className="flex flex-col overflow-hidden rounded-2xl border-2 border-text-primary bg-[var(--home-card)] shadow-[6px_6px_0_0_var(--color-primary)]">
             <div className="p-4 md:p-6 flex-1 flex flex-col gap-4">
                 {/* Status + Capacity row */}
                 <div className="flex items-center justify-between gap-3">
@@ -55,7 +54,7 @@ export function EventCard({event} : EventCardProps) {
                         {event.status}
                     </Badge>
 
-                    {spotsLeft !== null && (
+                    {spotsLeft !== null && event.status !== "Completed" && (
                         <span className="text-xs text-text-muted">
               {spotsLeft} spot{spotsLeft === 1 ? "" : "s"} left
             </span>
@@ -63,18 +62,18 @@ export function EventCard({event} : EventCardProps) {
                 </div>
 
                 {/* Title centered */}
-                <h3 className="text-lg md:text-xl font-bold text-secondary text-center">
+                <h3 className="text-lg md:text-xl font-bold text-text-primary text-center">
                     {event.title}
                 </h3>
 
                 {/* Mini calendar + time */}
                 <div className="flex items-center justify-center gap-4">
-                    <div className="w-14 overflow-hidden rounded-lg border border-secondary/20 bg-background">
-                        <div className="bg-secondary/10 text-secondary text-[10px] font-semibold text-center py-1">
+                    <div className="w-14 overflow-hidden rounded-lg border-2 border-text-primary bg-[var(--home-card)]">
+                        <div className="bg-secondary text-black text-[10px] font-semibold text-center py-1">
                             {month}
                         </div>
                         <div className="text-center py-2">
-                            <div className="text-xl font-extrabold leading-none text-secondary">
+                            <div className="text-xl font-extrabold leading-none text-text-primary">
                                 {day}
                             </div>
                             <div className="text-[10px] text-text-muted">{weekday}</div>
@@ -82,13 +81,13 @@ export function EventCard({event} : EventCardProps) {
                     </div>
 
                     <div className="text-sm text-text-muted">
-                        <div className="font-medium text-secondary">{event.time}</div>
+                        <div className="font-semibold text-text-primary">{event.time}</div>
                         <div className="text-xs">{event.date}</div>
                     </div>
                 </div>
 
                 {/* Location */}
-                <div className="text-sm text-secondary">
+                <div className="text-sm text-text-primary">
                     <span className="font-semibold">Location:</span>{" "}
                     <span className="text-text-muted">{event.location}</span>
                 </div>
@@ -98,31 +97,25 @@ export function EventCard({event} : EventCardProps) {
                     {event.description}
                 </p>
 
-                {/* Button */}
-                <div className="mt-auto pt-2 flex justify-center">
-                    {event.status === "Completed" ? (
-                        <Button href="/events" variant="outline" className="text-xs">
-                            View Recap
-                        </Button>
-                    ) : isFull ? (
-                        <Button variant="outline" className="text-xs">
-                            Full
-                        </Button>
-                    ) : event.status === "Paused" ? (
-                        <Button variant="outline" className="text-xs">
-                            Paused
-                        </Button>
-                    ) : (
-                        <Button
-                            href="/apply"
-                            variant="primary"
-                            className="text-xs"
-                        >
-                            Register
-                        </Button>
-                    )}
-                </div>
+                {/* Button (none for completed events) */}
+                {event.status !== "Completed" && (
+                    <div className="mt-auto pt-2 flex justify-center">
+                        {isFull ? (
+                            <Button variant="outline" className="text-xs">
+                                Full
+                            </Button>
+                        ) : event.status === "Paused" ? (
+                            <Button variant="outline" className="text-xs">
+                                Paused
+                            </Button>
+                        ) : (
+                            <Button href="/apply" variant="primary" className="text-xs">
+                                Register
+                            </Button>
+                        )}
+                    </div>
+                )}
             </div>
-        </Card>
+        </div>
     );
 }

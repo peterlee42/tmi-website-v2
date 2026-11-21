@@ -9,7 +9,7 @@ export const sampleEvents: Event[] = [
         location: "Wallberg (WB) 219",
         description:
             `Catch up on our current TMI projects, hear insights from a research talk, and get involved in TMI's new opportunities.`,
-        status: "Active",
+        status: "Completed",
         spots: 60,
         attendees: 42,
     },
@@ -21,7 +21,7 @@ export const sampleEvents: Event[] = [
         location: "Online (Zoom)",
         description:
             "A meeting to showcase the work of the project and web teams.",
-        status: "Active",
+        status: "Completed",
         spots: 200,
         attendees: 153,
     },
