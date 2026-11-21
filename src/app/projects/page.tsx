@@ -1,6 +1,17 @@
 import { ProjectCard } from "./components/ProjectCard";
 import { sampleProjects } from "./components/sampleData";
 import Link from "next/link";
+import "../home.css";
+import NeuralBackground from "@/components/NeuralBackground";
+
+const heroPills = [
+  { label: "Interpretability", style: "bg-primary text-black -rotate-2" },
+  { label: "Privacy", style: "bg-secondary text-black rotate-1" },
+  { label: "Fairness", style: "bg-[var(--home-card)] border-2 border-text-primary rotate-2" },
+  { label: "ML for good", style: "bg-primary text-black -rotate-1" },
+];
+
+const h2 = "m-0 text-[clamp(30px,5vw,48px)] font-extrabold leading-tight tracking-tight";
 
 export default function Projects() {
   // Categorize projects: Current (Active, Paused) and Past (Completed)
@@ -12,63 +23,74 @@ export default function Projects() {
   );
 
   return (
-    <main className="min-h-screen w-full bg-background">
-      <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-        {/* Page Header */}
-        <section className="mb-8 md:mb-12 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-secondary mb-4">
+    <main className="home bg-[var(--home-bg)] text-text-primary transition-colors duration-300">
+      {/* Hero */}
+      <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden px-6 py-24">
+        <div className="home-fade-mask absolute inset-0">
+          <NeuralBackground />
+        </div>
+        <div className="relative z-10 flex max-w-3xl flex-col items-center gap-6 text-center">
+          <span className="text-sm font-bold uppercase tracking-widest text-[var(--home-eyebrow)]">
+            What we build
+          </span>
+          <h1 className="m-0 text-[clamp(36px,7vw,72px)] font-extrabold leading-[1.05] tracking-tight">
             Projects
           </h1>
-          <p className="text-base md:text-lg text-text-muted max-w-2xl mx-auto">
+          <p className="m-0 max-w-xl text-lg leading-relaxed text-text-muted">
             Advancing LLM interpretability and AI ethics.
           </p>
+          <ul className="m-0 mt-2 flex list-none flex-wrap justify-center gap-4 p-0">
+            {heroPills.map((pill) => (
+              <li key={pill.label} className={`rounded-full px-6 py-3 text-lg font-bold ${pill.style}`}>
+                {pill.label}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Current Projects */}
+      {currentProjects.length > 0 && (
+        <section>
+          <div className="mx-auto max-w-6xl px-6 py-16">
+            <h2 className={`${h2} mb-10 text-center`}>Current Projects</h2>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {currentProjects.map((project, i) => (
+                <ProjectCard key={project.id} project={project} index={i} />
+              ))}
+            </div>
+          </div>
         </section>
+      )}
 
-        {/* Current Projects */}
-        {currentProjects.length > 0 && (
-          <section className="mb-12 md:mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-6 md:mb-8">
-              Current Projects
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {currentProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+      {/* Past Projects */}
+      {pastProjects.length > 0 && (
+        <section className="bg-secondary/15">
+          <div className="mx-auto max-w-6xl px-6 py-16">
+            <h2 className={`${h2} mb-10 text-center`}>Past Projects</h2>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {pastProjects.map((project, i) => (
+                <ProjectCard key={project.id} project={project} index={i} />
               ))}
             </div>
-          </section>
-        )}
+          </div>
+        </section>
+      )}
 
-        {/* Past Projects */}
-        {pastProjects.length > 0 && (
-          <section className="mb-0">
-            <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-6 md:mb-8">
-              Past Projects
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {pastProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
-            </div>
-          </section>
-        )}
-      </div>
-
-      {/* Hero Section - Full Width */}
-      <section className="w-full bg-secondary/5 py-20 md:py-28 mt-8 md:mt-12 mb-0">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-secondary mb-6 md:mb-8">
-            Have a cool research idea?
-          </h2>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5">
+      {/* CTA */}
+      <section>
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-8 px-6 py-24 text-center">
+          <h2 className={h2}>Have a cool research idea?</h2>
+          <div className="flex flex-col items-center gap-4 sm:flex-row">
             <Link
               href="/connect"
-              className="rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-on-accent shadow-sm transition hover:bg-hover-orange focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+              className="rounded-full border-2 border-text-primary bg-primary px-6 py-3 font-bold text-black shadow-[4px_4px_0_0_var(--color-text-primary,#000)] transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
             >
               Join Us
             </Link>
             <Link
               href="/about"
-              className="rounded-md border border-secondary/60 px-5 py-2.5 text-sm font-semibold text-secondary transition hover:bg-secondary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60"
+              className="rounded-full border-2 border-text-primary bg-[var(--home-card)] px-6 py-3 font-bold transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60"
             >
               Meet the Team
             </Link>

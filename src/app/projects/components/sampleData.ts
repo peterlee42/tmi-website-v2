@@ -6,10 +6,10 @@ export const sampleProjects: Project[] = [
     id: "5",
     title: "LLM Sycophancy Mitigation",
     description:
-      "LLMs can change correct answers simply because users push back. How can we stop AI from blindly agreeing without making it less helpful or accurate?",
+      "Detect and correct sycophantic behaviour in LLMs.",
     status: "Active",
     tags: ["LLMs", "Sycophancy", "Alignment", "Robustness"],
-    leads: [],
+    leads: ["Akash Nagabhirava"],
     links: {
       proposal:
         "https://docs.google.com/document/d/18ixg4s_yK7XIg57KUF7iQx4igkmsfxPke4AEb0am4Wk/edit?usp=sharing",
@@ -20,10 +20,10 @@ export const sampleProjects: Project[] = [
     id: "6",
     title: "Socratic AI Tutor",
     description:
-      "How can we build an AI tutor that helps students solve problems without solving them for them?",
+      "Build a jail-break resistant AI tutor that guides students toward answers without simply giving them away.",
     status: "Active",
     tags: ["AI in Education", "LLMs", "Human-AI Interaction"],
-    leads: [],
+    leads: ["Jake Maly"],
     links: {
       proposal:
         "https://docs.google.com/document/d/1rL0hzYbRthrpLczFMHq1yX5OD7W0vqo5eatygBtXl1A/edit?usp=sharing",
@@ -31,24 +31,13 @@ export const sampleProjects: Project[] = [
     media: [{ type: "overview" }],
   },
   {
-    id: "7",
-    title: "Whiteboxing LLM Behaviour",
-    description:
-      "What happens inside an LLM before it produces a harmful response? Can we detect the warning signs hidden in its internal activations?",
-    status: "Active",
-    tags: ["Interpretability", "LLMs", "AI Safety"],
-    leads: [],
-    links: {},
-    media: [{ type: "overview" }],
-  },
-  {
     id: "8",
     title: "Synthetic Data Screening",
     description:
-      "Not all synthetic training data is created equal. What makes synthetic data trustworthy enough to train AI?",
+      "Design screening pipelines for evaluating the quality of synthetic training data.",
     status: "Active",
     tags: ["Synthetic Data", "Data Quality", "Responsible AI"],
-    leads: [],
+    leads: ["Andy Li", "Sameha Tasnim"],
     links: {
       proposal:
         "https://docs.google.com/document/d/1wGd7tVCHAJ8ntJD-n_MAHbqc8EWJhJi_ZhhxXn36Lj0/edit?usp=sharing",
@@ -59,10 +48,10 @@ export const sampleProjects: Project[] = [
     id: "9",
     title: "Uncertainty-Aware RAG",
     description:
-      "What if AI could decide not only what to answer, but whether its evidence is good enough to answer at all?",
+      "Build RAG systems that recognize uncertainty and know when to answer, ask, or defer.",
     status: "Active",
     tags: ["RAG", "Uncertainty", "LLMs", "Reliability"],
-    leads: [],
+    leads: ["Shaurya Sareen (Rye)"],
     links: {
       proposal:
         "https://docs.google.com/document/d/1oxy9txFOXoEpWfCnNlQ8bOCk9ruSjBrhTLEzDjnRIPk/edit?usp=sharing",
@@ -70,24 +59,13 @@ export const sampleProjects: Project[] = [
     media: [{ type: "overview" }],
   },
   {
-    id: "10",
-    title: "Copyright Safeguarding",
-    description:
-      "AI promises copyright protection. Can we put those safeguards to the test and make them stronger?",
-    status: "Active",
-    tags: ["Copyright", "AI Safety", "Generative AI"],
-    leads: [],
-    links: {},
-    media: [{ type: "overview" }],
-  },
-  {
     id: "11",
     title: "Privacy-Preserving LLM Gateway",
     description:
-      "How can we protect sensitive data while preserving the usefulness of LLM responses?",
+      "Build a gateway that protects sensitive data before prompts are sent to external model providers.",
     status: "Active",
     tags: ["Privacy", "LLMs", "Data Protection"],
-    leads: [],
+    leads: ["Peter Lee"],
     links: {
       proposal:
         "https://docs.google.com/document/d/1oDY23HJIKzhTuS8ukdYnuBkjADiQgc19OZtcNxqMAf0/edit?usp=sharing",
@@ -99,7 +77,7 @@ export const sampleProjects: Project[] = [
     id: "1",
     title: "Explainable Censorship",
     description:
-      "Analyzing open-source moderation models to examine how they behave in ambiguous cases. Explores interpretability, calibration, and explanation techniques to improve transparency in automated content moderation using the UC Berkeley Measuring Hate Speech dataset.",
+      "Explaining how open-source moderation models behave in ambiguous cases, using the UC Berkeley Measuring Hate Speech dataset.",
     status: "Completed",
     tags: ["Content Moderation", "Interpretability", "Fairness", "Transformers", "NLP"],
     leads: ["Yiping Chen"],
@@ -137,7 +115,7 @@ export const sampleProjects: Project[] = [
     id: "2",
     title: "Context Based Captioning",
     description:
-      "Context-Based Captioning is a high-accuracy, live transcription system designed to master complex STEM terminology through a hybrid multi-stage architecture. By integrating course-specific materials via ModernBERT and Shallow Fusion, the pipeline dynamically biases distil-whisper to ensure technical accuracy in real-time university environments.",
+      "Live transcription that nails STEM terminology by biasing distil-whisper with course materials via ModernBERT and Shallow Fusion.",
     status: "Completed",
     tags: [
       "Accessibility",
@@ -199,7 +177,7 @@ export const sampleProjects: Project[] = [
     id: "3",
     title: "Machine Unlearning",
     description:
-      "Evaluating the performance trade-offs of diverse machine unlearning frameworks by simulating user data removal requests within social media recommender systems.",
+      "Benchmarking machine unlearning frameworks by simulating user data removal requests in social media recommenders.",
     status: "Completed",
     tags: ["Machine Unlearning", "Data Privacy", "AI Safety", "GDPR", "Benchmark"],
     leads: ["Seoyun Yang"],
@@ -236,7 +214,7 @@ export const sampleProjects: Project[] = [
     id: "4",
     title: "LLM Social Simulation",
     description:
-      "Studying collective behavior of LLM agents in multi-agent environments with shared resource constraints. Investigates cooperation vs. collapse dynamics, resource competition, social norm emergence, and governance mechanisms when agents compete over regenerating resources.",
+      "How LLM agents cooperate or collapse when competing over shared, regenerating resources.",
     status: "Completed",
     tags: ["Multi-Agent Systems", "LLM Agents", "Social Simulation", "Cooperation", "Game Theory"],
     leads: ["Clementine Yang"],
