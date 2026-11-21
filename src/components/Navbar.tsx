@@ -12,8 +12,8 @@ export default function Navbar() {
     // Read theme preference after mount to avoid hydration mismatch
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+        // Default to light mode unless the user explicitly chose dark
+        const shouldBeDark = savedTheme === "dark";
 
         if (shouldBeDark) {
             document.documentElement.classList.add("dark");
