@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import "../home.css";
 import NeuralBackground from "@/components/NeuralBackground";
-import { DescriptionList } from "./components/DescriptionList";
 import { PositionCard } from "./components/PositionCard";
 import { DropdownCard } from "./components/DropdownCard";
 import { LinkCard } from "./components/LinkCard";
@@ -14,10 +14,10 @@ import DiscordIcon from "@/components/DiscordIcon";
 import InstagramIcon from "@/components/InstagramIcon";
 
 const heroPills = [
-    { label: "Join a project team", style: "bg-primary text-black -rotate-2" },
-    { label: "Learn from researchers", style: "bg-secondary text-black rotate-1" },
-    { label: "Attend events", style: "bg-[var(--home-card)] border-2 border-text-primary rotate-2" },
-    { label: "Stay in the loop", style: "bg-primary text-black -rotate-1" },
+    { label: "Join a project team", href: "#positions", style: "bg-primary text-black -rotate-2" },
+    { label: "Learn from researchers", href: "/events", style: "bg-secondary text-black rotate-1" },
+    { label: "Attend events", href: "/events", style: "bg-[var(--home-card)] border-2 border-text-primary rotate-2" },
+    { label: "Stay in the loop", href: "#newsletter", style: "bg-primary text-black -rotate-1" },
 ];
 
 export default function Connect() {
@@ -28,10 +28,19 @@ export default function Connect() {
         // }
     ];
 
-    const descriptions = [
-        "Work on technical AI safety problems like privacy, explainability, and fairness.",
-        "Join a year-long team of 5 to 10 students and ship a demo and technical report.",
-        "Attend talks, workshops, and events with researchers and other UofT groups.",
+    const highlights = [
+        {
+            title: "Tackle real problems",
+            body: "Work on technical AI safety challenges like privacy, explainability, and fairness.",
+        },
+        {
+            title: "Ship with a team",
+            body: "Join a year-long team of 5 to 10 students and deliver a demo and technical report.",
+        },
+        {
+            title: "Meet the community",
+            body: "Attend talks, workshops, and events with researchers and other UofT groups.",
+        },
     ];
 
     const faqs = [
@@ -82,28 +91,32 @@ export default function Connect() {
                     </p>
                     <ul className="m-0 mt-2 flex list-none flex-wrap justify-center gap-4 p-0">
                         {heroPills.map((pill) => (
-                            <li key={pill.label} className={`rounded-full px-6 py-3 text-lg font-bold ${pill.style}`}>
-                                {pill.label}
+                            <li key={pill.label}>
+                                <Link
+                                    href={pill.href}
+                                    className={`block rounded-full px-6 py-3 text-lg font-bold transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary ${pill.style}`}
+                                >
+                                    {pill.label}
+                                </Link>
                             </li>
                         ))}
                     </ul>
                 </div>
             </section>
 
-            {/* Why join */}
+            {/* What you'll do */}
             <section>
-                <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
-                    <Image
-                        src="/tmi-team.png"
-                        alt="TMI Team Picture"
-                        width={560}
-                        height={560}
-                        className="mx-auto h-auto w-full max-w-md rounded-2xl border-2 border-text-primary object-contain shadow-[6px_6px_0_0_var(--color-secondary)]"
-                    />
-                    <div className="flex flex-col items-start gap-6">
-                        <h2 className={h2}>Why join?</h2>
-                        <DescriptionList descriptions={descriptions} />
-                    </div>
+                <div className="mx-auto flex max-w-[1100px] flex-col gap-12 px-6 py-16 md:py-24">
+                    <h2 className={`${h2} text-center`}>What you&apos;ll do</h2>
+                    <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-3">
+                        {highlights.map((item) => (
+                            <li key={item.title} className={`${card} flex flex-col gap-3 p-6`}>
+                                <span aria-hidden="true" className="h-3 w-3 rounded-full bg-primary" />
+                                <h3 className="m-0 text-xl font-bold">{item.title}</h3>
+                                <p className="m-0 leading-relaxed text-text-muted">{item.body}</p>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </section>
 
@@ -123,10 +136,10 @@ export default function Connect() {
                         </div>
                     ) : (
                         <div className={`${card} mx-auto flex w-full max-w-2xl flex-col items-center px-6 py-14 text-center`}>
-                            <h3 className="m-0 text-2xl font-bold">Check back later!</h3>
+                            <h3 className="m-0 text-2xl font-bold">Applications are closed</h3>
                             <p className="m-0 mt-3 max-w-md leading-relaxed text-text-muted">
-                                We aren&apos;t currently hiring for any positions. Follow us on Instagram or join our
-                                Discord to be the first to know when applications open.
+                                We aren&apos;t hiring right now. Join our Discord or sign up for updates and
+                                we&apos;ll tell you the moment applications open.
                             </p>
                         </div>
                     )}
@@ -175,12 +188,21 @@ export default function Connect() {
 
             {/* FAQ */}
             <section>
-                <div className="mx-auto flex max-w-3xl flex-col gap-12 px-6 py-24">
-                    <h2 className={`${h2} text-center`}>FAQ</h2>
-                    <div className="grid grid-cols-1 gap-5">
-                        {faqs.map((faq, index) => (
-                            <DropdownCard key={index} title={faq.title} description={faq.description} />
-                        ))}
+                <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[2fr_3fr]">
+                    <Image
+                        src="/tmi-team.png"
+                        alt="TMI Team Picture"
+                        width={560}
+                        height={768}
+                        className="mx-auto h-auto w-full max-w-sm rounded-2xl border-2 border-text-primary object-contain shadow-[6px_6px_0_0_var(--color-secondary)]"
+                    />
+                    <div className="flex flex-col gap-10">
+                        <h2 className={h2}>FAQ</h2>
+                        <div className="grid grid-cols-1 gap-5">
+                            {faqs.map((faq, index) => (
+                                <DropdownCard key={index} title={faq.title} description={faq.description} />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
